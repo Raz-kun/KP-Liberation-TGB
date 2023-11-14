@@ -15,12 +15,12 @@
 FOB_typename = "LAND_sb_bunker_main";                                   // This is the main FOB HQ building.
 FOB_box_typename = "B_Slingload_01_Cargo_F";                            // This is the FOB as a container.
 FOB_truck_typename = "uns_M35A2_fuel";                                  // This is the FOB as a vehicle.
-Arsenal_typename = "uns_resupply_crate_US";                             // This is the virtual arsenal as portable supply crates.
+Arsenal_typename = "B_supplyCrate_F";		                    		// This is the virtual arsenal as portable supply crates.
 Respawn_truck_typename = "uns_M577_amb";                                // This is the mobile respawn (and medical) truck.
-huron_typename = "uns_h21c";                                            // This is Spartan 01, a multipurpose mobile respawn as a helicopter.
+huron_typename = "uns_ch47_m60_army";                                   // This is Spartan 01, a multipurpose mobile respawn as a helicopter.
 crewman_classname = "uns_US_25ID_STY3";                                 // This defines the crew for vehicles.
 pilot_classname = "uns_pilot1";                                         // This defines the pilot for helicopters.
-KP_liberation_little_bird_classname = "uns_H13_transport_CAV";          // These are the little birds which spawn on the Freedom or at Chimera base.
+KP_liberation_little_bird_classname = "uns_oh6_transport";          	// These are the little birds which spawn on the Freedom or at Chimera base.
 KP_liberation_boat_classname = "UNS_Zodiac_W";                          // These are the boats which spawn at the stern of the Freedom.
 KP_liberation_truck_classname = "uns_M35A2_Open";                       // These are the trucks which are used in the logistic convoy system.
 KP_liberation_small_storage_building = "ContainmentArea_02_sand_F";     // A small storage area for resources.
@@ -32,6 +32,7 @@ KP_liberation_plane_slot_building = "UNS_Hanger_repair";                // The h
 KP_liberation_supply_crate = "CargoNet_01_box_F";                       // This defines the supply crates, as in resources.
 KP_liberation_ammo_crate = "B_CargoNet_01_ammo_F";                      // This defines the ammunition crates.
 KP_liberation_fuel_crate = "CargoNet_01_barrels_F";                     // This defines the fuel crates.
+KP_SimplexTransport = "uns_UH1D_m60";									// This defines the Simplex Transport. To ease vehicle init to disable Lambs AI.
 
 /*
     --- Friendly classnames ---
@@ -126,12 +127,12 @@ air_vehicles = [
     ["uns_ch47_m60_1AC",300,80,200],                                    // CH-47A Chinook (1AC)
     ["uns_ach47_m134",300,150,200],                                     // ACH-47A Guns-a-Go-Go (M134)
     ["uns_ach47_m200",300,175,200],                                     // ACH-47A Guns-a-Go-Go (M200)
-    ["UNS_AH1G",400,400,200],                                           // AH-1D Cobra (CAS)
-    ["UNS_AH1G_FFAR",400,400,200],                                      // AH-1D Cobra (M158/M200)
-    ["UNS_AH1G_M158",400,400,200],                                      // AH-1D Cobra (M158)
-    ["UNS_AH1G_M195",400,400,200],                                      // AH-1D Cobra (M195)
-    ["UNS_AH1G_M200",400,400,200],                                      // AH-1D Cobra (M200)
-    ["UNS_AH1G_SUU11",400,400,200],                                     // AH-1D Cobra (SUU11)
+    ["UNS_AH1G",400,400,200],                                           // AH-1G Cobra (CAS)
+    ["UNS_AH1G_FFAR",400,400,200],                                      // AH-1G Cobra (M158/M200)
+    ["UNS_AH1G_M158",400,400,200],                                      // AH-1G Cobra (M158)
+    ["UNS_AH1G_M195",400,400,200],                                      // AH-1G Cobra (M195)
+    ["UNS_AH1G_M200",400,400,200],                                      // AH-1G Cobra (M200)
+    ["UNS_AH1G_SUU11",400,400,200],                                     // AH-1G Cobra (SUU11)
     ["uns_AC47",600,50,400],                                            // AC-47
     ["uns_C130_H",600,0,400],                                           // C-130H
     ["uns_KC130_H",600,0,500],                                          // KC-130H
@@ -148,8 +149,8 @@ static_vehicles = [
     ["uns_m2_low",25,50,0],                                             // M-2HB .50cal (low)
     ["uns_m2_high",25,50,0],                                            // M-2HB .50cal (high)
     ["uns_US_MK18_low",25,60,0],                                        // Mk18 Mod0 Honeywell HMGL
-    ["uns_m60_bunker_small",40,40,0],                                   // M60 Bunker (small)
-    ["uns_m60_bunker_large",50,40,0],                                   // M60 Bunker (large)
+//  ["uns_m60_bunker_small",40,40,0],                                   // M60 Bunker (small)
+//  ["uns_m60_bunker_large",50,40,0],                                   // M60 Bunker (large)
     ["uns_M40_106mm_US",50,100,0],                                      // M-40 106mm Recoilless Rifle
     ["Uns_M55_Quad",50,100,0],                                          // M-55 Quad 50
     ["uns_M1_81mm_mortar",80,150,0],                                    // M-1 81mm Mortar
@@ -158,6 +159,29 @@ static_vehicles = [
 ];
 
 buildings = [
+	//["",0,0,0],
+	
+	//Lights
+	["Land_LampShabby_F",0,0,0],
+	["Land_LampHalogen_F",0,0,0],	
+    ["Land_PortableLight_double_F",0,0,0],
+    ["Land_PortableLight_single_F",0,0,0],
+	["Land_TentLamp_01_suspended_F",0,0,0],
+	["PortableHelipadLight_01_blue_F",0,0,0],
+    ["PortableHelipadLight_01_green_F",0,0,0],
+    ["PortableHelipadLight_01_red_F",0,0,0],
+	["Land_Campfire_burning",0,0,0],
+
+//Barricades
+	["Land_BagFence_Long_F",0,0,0],
+	["Land_HBarrier_5_F",0,0,0],
+	["Land_HBarrierWall6_F",0,0,0],
+	["Land_BagFence_Round_F",0,0,0],
+	["Land_BagFence_01_round_green_F",0,0,0],
+	["Land_BagFence_01_long_green_F",0,0,0],
+	["Land_SandbagBarricade_01_half_F",0,0,0],
+
+//Flags
     ["uns_FlagCarrierUS",0,0,0],
     ["uns_FlagCarrier101AB",0,0,0],
     ["uns_FlagCarrier25ID",0,0,0],
@@ -166,6 +190,8 @@ buildings = [
     ["uns_FlagCarrierUSMC",0,0,0],
     ["Flag_White_F",0,0,0],
     ["uns_FlagCarrierMed",0,0,0],
+	
+
     ["LAND_uns_army_med",0,0,0],
     ["uns_mash_main",0,0,0],
     ["uns_mash",0,0,0],
@@ -192,8 +218,6 @@ buildings = [
     ["Land_Net_Open",0,0,0],
     ["LAND_P_wire1",0,0,0],
     ["LAND_P_wire1a",0,0,0],
-    ["Land_PortableLight_double_F",0,0,0],
-    ["Land_PortableLight_single_F",0,0,0],
     ["Land_pristresek_mensi",0,0,0],
     ["Land_Razorwire_F",0,0,0],
     ["LAND_Revetment_5",0,0,0],
@@ -245,12 +269,6 @@ buildings = [
     ["Land_Wood_Tower",0,0,0],
     ["Land_Wood_Tower2",0,0,0],
     ["Land_woodenramp",0,0,0],
-    ["MapBoard_altis_F",0,0,0],
-    ["MapBoard_seismic_F",0,0,0],
-    ["MapBoard_stratis_F",0,0,0],
-    ["PortableHelipadLight_01_blue_F",0,0,0],
-    ["PortableHelipadLight_01_green_F",0,0,0],
-    ["PortableHelipadLight_01_red_F",0,0,0],
     ["Razorwire",0,0,0],
     ["SB_Wall_1",0,0,0],
     ["SB_Wall_2",0,0,0],
@@ -265,7 +283,13 @@ buildings = [
     ["uns_sbagcircle",0,0,0],
     ["uns_sbagwall_u",0,0,0],
     ["US_Tent_1",0,0,0],
-    ["Land_ClutterCutter_large_F",0,0,0]
+    ["Land_ClutterCutter_large_F",0,0,0],
+	
+	//Target Practice
+	["TargetP_Inf4_Acc2_F",0,0,0],
+	["TargetP_Inf7_Acc2_F",0,0,0],
+	["Land_Target_Pistol_01_F",0,0,0],
+	["Land_Target_Line_PaperTargets_01_F",0,0,0]
 ];
 
 support_vehicles = [
@@ -285,13 +309,18 @@ support_vehicles = [
     ["ACE_Box_82mm_Mo_Illum",50,10,0],
     ["ACE_Wheel",10,0,0],
     ["ACE_Track",10,0,0],
+	["TGB_CrateFiller",100,100,0],										//KP Crate Filler
     ["uns_M113_ENG",500,250,350],                                       // M-113 Engineer
     ["uns_M35A2_repair",325,0,75],                                      // M35A2 2.5T Truck (repair)
     ["uns_M35A2_fueltanker",125,0,275],                                 // M35A2 2.5T Tanker (Fuel)
     ["uns_M35A2_ammo",125,200,75],                                      // M35A2 2.5T Truck (Ammo)
     ["B_Slingload_01_Repair_F",275,0,0],                                // Huron Repair
+	["Land_RepairDepot_01_green_F",275,0,0],                            // Repair Depot	
     ["B_Slingload_01_Fuel_F",75,0,200],                                 // Huron Fuel
-    ["B_Slingload_01_Ammo_F",75,200,0]                                  // Huron Ammo
+//  ["TGB_Fuel_container_Small",50,0,150],                              // Fuel	Container
+    ["B_Slingload_01_Ammo_F",75,200,0],	                                // Huron Ammo
+	["B_Slingload_01_Medevac_F",75,50,0]                                // Huron Medivac
+	
 ];
 
 /*
@@ -389,8 +418,8 @@ elite_vehicles = [
     "uns_A1J_CAS",                                                      // A-1H Skyraider (CAS)
     "uns_A7_CAS",                                                       // A-7D Corsair II (CAS)
     "uns_F4E_CAS",                                                      // F-4E Phantom II (CAS)
+    "uns_UH1C_M6_M200_M134",                                            // UH-1C/M6 Iroquois (M200/M134)
     "Uns_M102_artillery",                                               // M-102 105mm Howitzer
-    "uns_m107sp",                                                       // M-107 Self-Propelled Gun
     "uns_m110sp",                                                       // M-110 Self-Propelled Gun
     "Uns_M114_artillery",                                               // M-114A1 155mm Howitzer
     "uns_m48a3",                                                        // M-48A3 Patton MBT
