@@ -56,7 +56,12 @@ militia_squad = [
 ];
 
 // Militia vehicles. Lightweight vehicle classnames the game will pick from randomly as sector defenders. Can also be empty for only infantry milita.
-militia_vehicles = [];
+militia_vehicles = [
+	"uns_spiderhole_VC",												//VC Foxhole
+	"uns_m1941_82mm_mortarVC",											//VC Mortar
+	"uns_spiderhole_leanto_VC",											//VC Foxhole 2
+	"uns_pk_bunker_low_VC"												//VC Bunker low
+];
 
 // All enemy vehicles that can spawn as sector defenders and patrols at high enemy combat readiness (aggression levels).
 opfor_vehicles = [
@@ -107,7 +112,9 @@ opfor_battlegroup_vehicles = [
     "uns_t34_85_nva",                                                   // T-34/85 Medium Tank
     "uns_t54_nva",                                                      // T-54 Medium Tank
     "uns_t55_nva",                                                      // T-55A Medium Tank
+//	"uns_ZPU2_VC",														// ZPU-2 (AA) GUN
     "uns_Mi8TV_VPAF_MG"                                                 // Mi-8TV Hip-C (Transport)
+
 ];
 
 // All enemy vehicles that can spawn as battlegroups, either assaulting or as reinforcements, at lower enemy combat readiness (aggression levels).
