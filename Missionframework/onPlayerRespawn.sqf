@@ -44,3 +44,5 @@ if ([
         [KPLIB_suppMod_arty] call BIS_fnc_moduleSupportsInitProvider;
     };
 };
+
+player removeAllEventHandlers "HIT";

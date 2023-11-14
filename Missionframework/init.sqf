@@ -62,3 +62,5 @@ if (isServer) then {
     KPLIB_initServer = true;
     publicVariable "KPLIB_initServer";
 };
+
+[] execVM "ROS_hitreaction\scripts\ROS_HitReaction.sqf";

@@ -67,7 +67,7 @@ KPLIB_objectInits = [
         }
     ],
 
-    // Add ViV action to Arsenal crate
+/*    // Add ViV action to Arsenal crate **Only works for HEMTT Flatbed**
     [
         [Arsenal_typename],
         {
@@ -78,7 +78,7 @@ KPLIB_objectInits = [
             };
         }
     ],
-
+*/
     // Add storage type variable to built storage areas (only for FOB built/loaded ones)
     [
         [KP_liberation_small_storage_building, KP_liberation_large_storage_building],
@@ -128,5 +128,27 @@ KPLIB_objectInits = [
             _this allowFleeing 0;
         },
         true
-    ]
+    ],
+	
+	//Disable lambs for Simplex Support Service
+	[
+		["uns_UH1D_m60"],
+		{
+		_this setVariable ["lambs_danger_disableGroupAI", true];
+		_this setVariable ["lambs_danger_disableAI", true];
+		}
+	],
+	
+	//Fortification Resupply Action
+	[
+		//Item 
+		["B_Slingload_01_Ammo_F", "TGB_CrateFiller"],
+		{	
+			private _action = ["Resupply Fortification","Resupply Fortification", "modules\grad-fortifications\data\sandbags.paa",
+			{[_this] call compile preprocessFileLineNumbers "modules\grad-fortifications\FortifyList.hpp";},
+			{true}] call ace_interact_menu_fnc_createAction;
+			[_this, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
+		}
+	]
+	
 ];

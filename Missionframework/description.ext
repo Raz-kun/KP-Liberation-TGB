@@ -153,7 +153,7 @@ allowFunctionsRecompile = "[0, 1] select (is3DENMultiplayer || is3DEN)";
 // Disable specific channels for voice and text communication.
 // MOTD and admin say have exception and will show in global.
 // 0 Global, 1 Side, 2 Command, 3 Group, 4 Vehicle, 5 Direct, 6 System
-disableChannels[] = {0};
+disableChannels[] = {1,2,3,4,5};
 
 // Multiplayer setting that removes all playable units which do not have a human player.
 // When AI is disabled, a player logging out will not have AI take control of his character.
@@ -189,6 +189,9 @@ showMap = 1;
 // Enable or disable availability of createVehicleLocal
 unsafeCVL = 1;
 
+//Enable/Disable radio messages (Auto Reporting) to be shown and heard on screen.
+enableRadio = 0;
+
 
 /*
     ----- Task Settings -----
@@ -211,6 +214,7 @@ taskManagement_drawDist = 5000;
 /*
     ----- Config Includes -----
 */
+#include "modules\grad-fortifications\grad_fortifications.hpp"
 
 class CfgDebriefing {
     #include "KPLIB_debriefs.hpp"
@@ -230,7 +234,14 @@ class CfgDiscordRichPresence {
 class CfgFunctions {
     #include "CfgFunctions.hpp"
     #include "KP\KPPLM\KPPLM_functions.hpp"
+	#include "modules\grad-fortifications\cfgFunctions.hpp"
 };
+
+/*
+class RscTitles {
+    #include "modules\grad-fortifications\dialog\hint\title.hpp"
+	#include "ui\liberation_titles.hpp"
+};*/
 
 class CfgRespawnTemplates {
 
@@ -238,6 +249,10 @@ class CfgRespawnTemplates {
 
 class CfgTaskDescriptions {
     #include "scripts\client\tutorial\CfgTaskDescriptions.hpp"
+};
+
+class CfgVehicles {
+	#include "TGB\Cratefiller_init.hpp"
 };
 
 #include "ui\liberation_interface.hpp"
@@ -248,3 +263,83 @@ class CfgTaskDescriptions {
 #include "KP\KPGUI\KPGUI_defines.hpp"
 #include "KP\KPPLM\ui\KPPLM_dialog.hpp"
 
+class CfgSounds {
+	sounds[] ={};
+
+	class hitlight1
+	{
+		name="hitlight1";
+		sound[] = {"ROS_hitreaction\sounds\light1.ogg", 1, 1, 100};
+		titles[] = {};
+	};
+	class hitlight2
+		{
+		name="hitlight2";
+		sound[] = {"ROS_hitreaction\sounds\light2.ogg", 1, 1, 100};
+		titles[] = {};
+		};
+	class hitlight3
+	{
+		name="hitlight3";
+		sound[] = {"ROS_hitreaction\sounds\light3.ogg", 1, 1, 100};
+		titles[] = {};
+	};
+	class hitlight4
+	{
+		name="hitlight4";
+		sound[] = {"ROS_hitreaction\sounds\light4.ogg", 1, 1, 100};
+		titles[] = {};
+	};
+	class hitmedium1
+	{
+		name="hitmedium1";
+		sound[] = {"ROS_hitreaction\sounds\medium1.ogg", 1, 1, 100};
+		titles[] = {};
+	};
+	class hitmedium2
+	{
+		name="hitmedium2";
+		sound[] = {"ROS_hitreaction\sounds\medium2.ogg", 1, 1, 100};
+		titles[] = {};
+	};
+	class hitmedium3
+	{
+		name="hitmedium3";
+		sound[] = {"ROS_hitreaction\sounds\medium3.ogg", 1, 1, 100};
+		titles[] = {};
+	};
+	class hitmedium4
+	{
+		name="hitmedium4";
+		sound[] = {"ROS_hitreaction\sounds\medium4.ogg", 1, 1, 100};
+		titles[] = {};
+	};
+	class hitheavy1
+	{
+		name="hitheavy1";
+		sound[] = {"ROS_hitreaction\sounds\heavy1.ogg", 1, 1, 100};
+		titles[] = {};
+	};
+	class hitheavy2
+	{
+		name="hitheavy2";
+		sound[] = {"ROS_hitreaction\sounds\heavy2.ogg", 1, 1, 100};
+		titles[] = {};
+	};
+	class hitheavy3
+	{
+		name="hitheavy3";
+		sound[] = {"ROS_hitreaction\sounds\heavy3.ogg", 1, 1, 100};
+		titles[] = {};
+	};
+	class hitheavy4
+	{
+		name="hitheavy4";
+		sound[] = {"ROS_hitreaction\sounds\heavy4.ogg", 1, 1, 100};
+		titles[] = {};
+	};
+};
+
+class CfgGradFortifications{
+	#include "modules\grad-fortifications\cfgGradFortifications.hpp"
+};
